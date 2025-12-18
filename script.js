@@ -41,8 +41,11 @@ let decksData = [];
 // 載入單個題庫檔案
 async function loadQuizFile(filePath) {
     try {
-        const response = await fetch(filePath);
+        // 對檔案路徑進行 URL 編碼，處理空格和特殊字元
+        const encodedPath = filePath.split('/').map(part => encodeURIComponent(part)).join('/');
+        const response = await fetch(encodedPath);
         if (!response.ok) {
+            console.error(`無法載入 ${filePath}，HTTP 狀態碼: ${response.status}`);
             throw new Error(`無法載入 ${filePath}`);
         }
         const data = await response.json();
@@ -107,7 +110,14 @@ async function loadAllQuizzes() {
     
     try {
         const results = await Promise.all(quizFiles.map(file => loadQuizFile(file)));
-        decksData = results.filter(deck => deck !== null);
+        const successfulDecks = results.filter(deck => deck !== null);
+        const failedCount = results.length - successfulDecks.length;
+        
+        if (failedCount > 0) {
+            console.warn(`有 ${failedCount} 個檔案載入失敗，請檢查瀏覽器控制台`);
+        }
+        
+        decksData = successfulDecks;
         
         // 載入本地儲存的上傳檔案
         loadUploadedQuizzes();
