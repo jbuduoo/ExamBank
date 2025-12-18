@@ -47,17 +47,20 @@ async function loadQuizFile(filePath) {
         // 從檔案路徑提取檔名作為標題
         const fileName = filePath.split('/').pop().replace('.json', '');
         
+        // 新格式：直接是陣列，舊格式：{ questions: [...] }
+        const questions = Array.isArray(data) ? data : (data.questions || []);
+        
         // 計算題目數量
-        const questionCount = data.questions ? data.questions.length : 0;
+        const questionCount = questions.length;
         
         // 計算圖片數量（檢查題目中是否有圖片）
         let imageCount = 0;
-        if (data.questions) {
-            imageCount = data.questions.filter(q => q.diagram || q.image).length;
+        if (questions.length > 0) {
+            imageCount = questions.filter(q => q.diagram || q.image).length;
         }
         
-        // 使用 importDate 或檔案修改時間作為修改日期
-        const modifiedDate = data.importDate || new Date().toISOString().split('T')[0];
+        // 使用當前日期作為修改日期（新格式沒有 importDate）
+        const modifiedDate = new Date().toISOString().split('T')[0];
         
         // 計算評分（基於題目數量，範圍 0-100）
         // 假設題目越多評分越高，最多 100 題 = 100%
@@ -79,7 +82,7 @@ async function loadQuizFile(filePath) {
             modified: modifiedDate,
             notes: questionCount,
             images: imageCount,
-            source: data.source || fileName,
+            source: fileName,
             isUploaded: false // 標記是否為上傳的檔案
         };
     } catch (error) {
@@ -164,20 +167,28 @@ async function handleFileUpload(event) {
         try {
             const data = JSON.parse(e.target.result);
             
-            // 驗證檔案格式
-            if (!data.questions || !Array.isArray(data.questions)) {
-                alert('檔案格式錯誤：缺少 questions 陣列！');
+            // 驗證檔案格式：新格式是陣列，舊格式是 { questions: [...] }
+            const questions = Array.isArray(data) ? data : (data.questions || []);
+            
+            if (!Array.isArray(questions) || questions.length === 0) {
+                alert('檔案格式錯誤：必須是題目陣列格式！');
+                return;
+            }
+            
+            // 驗證題目格式
+            if (!questions[0].Q || !questions[0].A) {
+                alert('檔案格式錯誤：題目格式不正確！');
                 return;
             }
             
             // 處理上傳的檔案
             const fileName = file.name.replace('.json', '');
-            const questionCount = data.questions.length;
+            const questionCount = questions.length;
             
             // 計算圖片數量
             let imageCount = 0;
-            if (data.questions) {
-                imageCount = data.questions.filter(q => q.diagram || q.image).length;
+            if (questions.length > 0) {
+                imageCount = questions.filter(q => q.diagram || q.image).length;
             }
             
             // 使用當前日期作為修改日期
