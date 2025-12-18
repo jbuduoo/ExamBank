@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamBank - 共享題庫</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo-section">
+                    <span class="star-icon">⭐</span>
+                    <h1 class="logo">ExamBank</h1>
+                </div>
+                <div class="nav-actions">
+                    <a href="#" class="nav-link">登入</a>
+                    <a href="#" class="nav-link">註冊</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title">共享題庫</h2>
+                <div class="header-actions">
+                    <button class="share-btn">分享題庫</button>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="搜尋題庫...">
+                        <button class="search-btn" onclick="searchDecks()">搜尋</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="decks-table">
+                    <thead>
+                        <tr>
+                            <th>標題</th>
+                            <th>評分</th>
+                            <th>修改日期</th>
+                            <th>題目數</th>
+                            <th>音訊</th>
+                            <th>圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody id="decksTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 40px;">
+                                <div class="loading-spinner">載入題庫中...</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
