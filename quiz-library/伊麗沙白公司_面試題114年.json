@@ -1,0 +1,502 @@
+[
+  {
+    "Id": "1",
+    "Q": "Java 的「跨平台」特性主要是透過什麼實現的？",
+    "A": "JDK (Java Development Kit)",
+    "B": "JVM (Java Virtual Machine)",
+    "C": "IDE (Integrated Development Environment)",
+    "D": "SQL",
+    "Ans": "B",
+    "Exp": "JVM 負責將編譯後的 Bytecode 轉換為特定作業系統的機器碼，實現「一次編寫，到處執行」。"
+  },
+  {
+    "Id": "2",
+    "Q": "Java 程式執行的進入點（Entry Point）方法簽章是什麼？",
+    "A": "public void main(String[] args)",
+    "B": "public static int main(String args)",
+    "C": "public static void main(String[] args)",
+    "D": "private static void main(String[] args)",
+    "Ans": "C",
+    "Exp": "標準格式必須是 public static void main(String[] args)。"
+  },
+  {
+    "Id": "3",
+    "Q": "下列何者「不是」Java 的基本資料型態 (Primitive Type)？",
+    "A": "int",
+    "B": "boolean",
+    "C": "String",
+    "D": "double",
+    "Ans": "C",
+    "Exp": "String 是一個類別 (Class/Reference Type)，而非基本資料型態。"
+  },
+  {
+    "Id": "4",
+    "Q": "在 Java 中，比較兩個物件的「內容值」是否相等，通常應該使用？",
+    "A": "==",
+    "B": ".equals()",
+    "C": "=",
+    "D": "===",
+    "Ans": "B",
+    "Exp": "「==」比較的是記憶體位址（Reference），「.equals()」預設也是比位址，但通常會被覆寫（如 String）來比較內容值。"
+  },
+  {
+    "Id": "5",
+    "Q": "關於 Overloading (多載) 與 Overriding (覆寫) 的敘述，何者正確？",
+    "A": "Overloading 發生在父子類別之間",
+    "B": "Overriding 的方法名稱可以不同",
+    "C": "Overloading 是同一個類別中，方法名稱相同但參數列表不同",
+    "D": "Overriding 是編譯時期的多型",
+    "Ans": "C",
+    "Exp": "Overloading (多載) 發生在同類別，參數不同；Overriding (覆寫) 發生在繼承關係，方法簽章須完全相同。"
+  },
+  {
+    "Id": "6",
+    "Q": "若一個變數被宣告為 static，代表什麼意思？",
+    "A": "該變數無法被修改",
+    "B": "該變數屬於類別本身，而非個別物件實體",
+    "C": "該變數只能在迴圈內使用",
+    "D": "該變數是私有的",
+    "Ans": "B",
+    "Exp": "static 成員屬於 Class 層級，所有實體共用同一份記憶體。"
+  },
+  {
+    "Id": "7",
+    "Q": "String, StringBuilder, StringBuffer 中，何者是「不可變 (Immutable)」的？",
+    "A": "String",
+    "B": "StringBuilder",
+    "C": "StringBuffer",
+    "D": "三者皆可變",
+    "Ans": "A",
+    "Exp": "String 物件一旦建立就無法修改，任何修改都會產生新的 String 物件。"
+  },
+  {
+    "Id": "8",
+    "Q": "下列關於 Interface (介面) 的敘述，何者錯誤？",
+    "A": "一個類別可以實作 (implements) 多個 Interface",
+    "B": "Interface 內的方法預設都是 public abstract",
+    "C": "Interface 可以被 new 出來",
+    "D": "Interface 內的變數預設是 public static final",
+    "Ans": "C",
+    "Exp": "Interface 與 Abstract Class 都不能直接透過 new 實例化。"
+  },
+  {
+    "Id": "9",
+    "Q": "ArrayList 與 LinkedList 的主要差異為何？",
+    "A": "ArrayList 是執行緒安全的",
+    "B": "LinkedList 查詢速度快，增刪慢",
+    "C": "ArrayList 查詢 (get) 速度快，但中間增刪元素較慢",
+    "D": "兩者沒有差異",
+    "Ans": "C",
+    "Exp": "ArrayList 基於陣列，支援隨機存取 (O(1))；LinkedList 基於鏈結串列，增刪快但查詢慢。"
+  },
+  {
+    "Id": "10",
+    "Q": "Java 中的「Garbage Collection (GC)」主要功能是什麼？",
+    "A": "自動回收不再被參照的物件記憶體",
+    "B": "刪除硬碟上的垃圾檔案",
+    "C": "編譯程式碼",
+    "D": "管理執行緒排程",
+    "Ans": "A",
+    "Exp": "GC 負責自動釋放 Heap 區中不再被任何變數參照的物件。"
+  },
+  {
+    "Id": "11",
+    "Q": "如果要處理 Key-Value (鍵值對) 的資料結構，應該使用？",
+    "A": "List",
+    "B": "Set",
+    "C": "Map",
+    "D": "Queue",
+    "Ans": "C",
+    "Exp": "Map 介面（如 HashMap）是專門用於儲存 Key-Value 對應的集合。"
+  },
+  {
+    "Id": "12",
+    "Q": "在 try-catch-finally 區塊中，finally區塊何時會執行？",
+    "A": "只有發生例外時",
+    "B": "只有沒發生例外時",
+    "C": "無論是否發生例外，最後都會執行 (除非 System.exit)",
+    "D": "由編譯器隨機決定",
+    "Ans": "C",
+    "Exp": "finally 區塊用於釋放資源，幾乎總是會執行。"
+  },
+  {
+    "Id": "13",
+    "Q": "關於 Access Modifiers (存取修飾子) 的範圍，由小到大排列？",
+    "A": "public < protected < default < private",
+    "B": "private < default < protected < public",
+    "C": "private < public < protected < default",
+    "D": "default < private < protected < public",
+    "Ans": "B",
+    "Exp": "private (本類別) < default (同套件) < protected (同套件+子類別) < public (全部)。"
+  },
+  {
+    "Id": "14",
+    "Q": "下列哪一個關鍵字用於繼承類別？",
+    "A": "implements",
+    "B": "extends",
+    "C": "inherits",
+    "D": "uses",
+    "Ans": "B",
+    "Exp": "類別繼承使用 extends，實作介面使用 implements。"
+  },
+  {
+    "Id": "15",
+    "Q": "若要讓一個變數的值一旦給定就不能再改變，應使用哪個關鍵字？",
+    "A": "static",
+    "B": "abstract",
+    "C": "final",
+    "D": "synchronized",
+    "Ans": "C",
+    "Exp": "final 修飾變數代表常數；修飾方法代表不可覆寫；修飾類別代表不可繼承。"
+  },
+  {
+    "Id": "16",
+    "Q": "什麼是「Boxing」和「Unboxing」？",
+    "A": "類別的封裝",
+    "B": "基本資料型態與其 Wrapper Class (包裝類別) 的自動轉換",
+    "C": "例外處理的機制",
+    "D": "執行緒的鎖定",
+    "Ans": "B",
+    "Exp": "例如 int 轉 Integer 是 Boxing，Integer 轉 int 是 Unboxing。"
+  },
+  {
+    "Id": "17",
+    "Q": "Object 類別中，hashCode() 方法的主要用途是什麼？",
+    "A": "加密物件",
+    "B": "配合 HashMap/HashSet 等集合，快速定位物件",
+    "C": "將物件轉為字串",
+    "D": "複製物件",
+    "Ans": "B",
+    "Exp": "hashCode 用於雜湊結構中決定儲存位置，若兩個物件 equals 為 true，hashCode 必須相同。"
+  },
+  {
+    "Id": "18",
+    "Q": "Checked Exception 與 Unchecked Exception (Runtime Exception) 的區別？",
+    "A": "Checked Exception 必須在編譯時被 try-catch 或 throws 處理",
+    "B": "Unchecked Exception 比較嚴重",
+    "C": "Checked Exception 是執行時才發生的",
+    "D": "兩者沒有區別",
+    "Ans": "A",
+    "Exp": "Checked (如 IOException) 強制要求處理；Unchecked (如 NullPointerException) 不強制。"
+  },
+  {
+    "Id": "19",
+    "Q": "啟動一個執行緒 (Thread) 應該呼叫哪個方法？",
+    "A": "run()",
+    "B": "start()",
+    "C": "init()",
+    "D": "execute()",
+    "Ans": "B",
+    "Exp": "呼叫 start() 才會建立新的執行緒並進入就緒狀態，之後由 JVM 呼叫 run()。直接呼叫 run() 只是普通方法呼叫。"
+  },
+  {
+    "Id": "20",
+    "Q": "關於 Set 集合的特性，何者正確？",
+    "A": "允許重複元素",
+    "B": "元素是有序的 (依插入順序)",
+    "C": "不允許重複元素",
+    "D": "必須使用 Key 來存取",
+    "Ans": "C",
+    "Exp": "Set (如 HashSet) 的主要特性就是元素不重複。"
+  },
+  {
+    "Id": "21",
+    "Q": "關鍵字 `this` 代表什麼？",
+    "A": "父類別物件",
+    "B": "目前的類別 (Class)",
+    "C": "當前物件實體的參照",
+    "D": "靜態方法",
+    "Ans": "C",
+    "Exp": "this 指向目前執行該方法的物件實體本身。"
+  },
+  {
+    "Id": "22",
+    "Q": "如果要讀取檔案，通常會使用哪個 Package 下的類別？",
+    "A": "java.util",
+    "B": "java.io 或 java.nio",
+    "C": "java.net",
+    "D": "java.sql",
+    "Ans": "B",
+    "Exp": "IO (Input/Output) 相關操作位於 java.io 或 java.nio。"
+  },
+  {
+    "Id": "23",
+    "Q": "關於 `abstract class` (抽象類別)，何者正確？",
+    "A": "抽象類別內不能有一般方法 (非抽象方法)",
+    "B": "抽象類別不能被繼承",
+    "C": "抽象類別可以包含抽象方法與一般方法，且不能被實例化",
+    "D": "抽象類別內的方法必須都是 public",
+    "Ans": "C",
+    "Exp": "抽象類別是用來被繼承的，可以包含實作細節，也可以包含強迫子類別實作的抽象方法。"
+  },
+  {
+    "Id": "24",
+    "Q": "下列哪個運算子用於檢查物件是否為特定類別的實體？",
+    "A": "check",
+    "B": "typeof",
+    "C": "instanceof",
+    "D": "is",
+    "Ans": "C",
+    "Exp": "語法為 `obj instanceof ClassName`。"
+  },
+  {
+    "Id": "25",
+    "Q": "HashMap 是執行緒安全 (Thread-safe) 的嗎？",
+    "A": "是",
+    "B": "不是",
+    "C": "看情況",
+    "D": "只有 Key 是安全的",
+    "Ans": "B",
+    "Exp": "HashMap 不是 Thread-safe，多執行緒環境下建議使用 ConcurrentHashMap 或 Hashtable (舊)。"
+  },
+  {
+    "Id": "26",
+    "Q": "Java 中的建構子 (Constructor) 有回傳型別嗎？",
+    "A": "有，回傳 void",
+    "B": "有，回傳該類別型別",
+    "C": "沒有回傳型別，連 void 都不能寫",
+    "D": "有，回傳 int",
+    "Ans": "C",
+    "Exp": "建構子名稱須與類別相同，且宣告時不可寫回傳型別。"
+  },
+  {
+    "Id": "27",
+    "Q": "StackOverflowError 通常是發生在什麼情況？",
+    "A": "記憶體不足 (Heap Full)",
+    "B": "無窮遞迴呼叫導致堆疊記憶體耗盡",
+    "C": "硬碟滿了",
+    "D": "找不到類別",
+    "Ans": "B",
+    "Exp": "Stack 存放方法呼叫，過深的遞迴會導致 Stack 爆滿。"
+  },
+  {
+    "Id": "28",
+    "Q": "super() 關鍵字的作用是什麼？",
+    "A": "呼叫父類別的建構子",
+    "B": "宣告超級變數",
+    "C": "跳出迴圈",
+    "D": "沒有這個關鍵字",
+    "Ans": "A",
+    "Exp": "super() 用於子類別建構子中呼叫父類別建構子，且必須放在第一行。"
+  },
+  {
+    "Id": "29",
+    "Q": "StringBuilder 與 StringBuffer 的差別？",
+    "A": "StringBuffer 是 Thread-safe 的，效率稍低；StringBuilder 不是",
+    "B": "StringBuilder 是 Thread-safe 的",
+    "C": "兩者完全一樣",
+    "D": "StringBuffer 已被棄用",
+    "Ans": "A",
+    "Exp": "StringBuffer 的方法有 synchronized，適合多執行緒；單執行緒建議用 StringBuilder。"
+  },
+  {
+    "Id": "30",
+    "Q": "Java 8 引入的 Lambda 表達式主要用於簡化什麼？",
+    "A": "迴圈寫法",
+    "B": "Functional Interface (只有一個抽象方法的介面) 的實作",
+    "C": "類別的繼承",
+    "D": "例外處理",
+    "Ans": "B",
+    "Exp": "Lambda 允許將函式當作參數傳遞，簡化匿名內部類的寫法。"
+  },
+  {
+    "Id": "31",
+    "Q": "什麼是 Singleton (單例模式)？",
+    "A": "一個類別可以有無數個實體",
+    "B": "一個類別只能有一個實體存在",
+    "C": "一種資料庫連線方式",
+    "D": "一種集合類型",
+    "Ans": "B",
+    "Exp": "設計模式的一種，確保一個類別只有一個實例，並提供全域存取點。"
+  },
+  {
+    "Id": "32",
+    "Q": "關鍵字 `synchronized` 的作用是？",
+    "A": "讓程式執行變快",
+    "B": "確保同一時間只有一個執行緒能存取該程式區塊或方法",
+    "C": "自動備份資料",
+    "D": "將變數存入硬碟",
+    "Ans": "B",
+    "Exp": "用於解決多執行緒併發時的 Race Condition 問題。"
+  },
+  {
+    "Id": "33",
+    "Q": "基本資料型態 int 佔用多少 Bytes？",
+    "A": "2",
+    "B": "4",
+    "C": "8",
+    "D": "16",
+    "Ans": "B",
+    "Exp": "int 佔 32 bits，即 4 bytes。"
+  },
+  {
+    "Id": "34",
+    "Q": "若發生 NullPointerException，通常是因為？",
+    "A": "除以零",
+    "B": "陣列越界",
+    "C": "試圖在一個為 null 的物件參照上呼叫方法或屬性",
+    "D": "轉型失敗",
+    "Ans": "C",
+    "Exp": "這是最常見的 Runtime Exception，表示物件尚未初始化就使用。"
+  },
+  {
+    "Id": "35",
+    "Q": "Collection 和 Collections 的差別？",
+    "A": "沒有差別",
+    "B": "Collection 是集合介面；Collections 是工具類別 (包含 sort, reverse 等靜態方法)",
+    "C": "Collections 是介面；Collection 是類別",
+    "D": "拼字錯誤",
+    "Ans": "B",
+    "Exp": "Collection 是 List/Set 的父介面；Collections 是提供演算法的 Utility Class。"
+  },
+  {
+    "Id": "36",
+    "Q": "在繼承關係中，子類別可以存取父類別的 private 成員嗎？",
+    "A": "可以",
+    "B": "不可以",
+    "C": "透過 super 可以",
+    "D": "只要在同一個 package 就可以",
+    "Ans": "B",
+    "Exp": "private 成員只能在該類別內部存取，子類別無法直接存取。"
+  },
+  {
+    "Id": "37",
+    "Q": "Comparable 和 Comparator 的用途？",
+    "A": "用於物件的排序 (Sorting)",
+    "B": "用於物件的複製",
+    "C": "用於物件的序列化",
+    "D": "用於執行緒管理",
+    "Ans": "A",
+    "Exp": "Comparable 定義物件本身的自然排序；Comparator 定義外部的自訂排序規則。"
+  },
+  {
+    "Id": "38",
+    "Q": "Thread 的 sleep() 與 wait() 的主要差異？",
+    "A": "sleep() 會釋放鎖 (Lock)，wait() 不會",
+    "B": "wait() 會釋放鎖，sleep() 不會釋放鎖",
+    "C": "兩者都會釋放鎖",
+    "D": "兩者都不會釋放鎖",
+    "Ans": "B",
+    "Exp": "wait() 是 Object 的方法，會釋放鎖並等待喚醒；sleep() 是 Thread 的方法，僅暫停執行但不釋放鎖。"
+  },
+  {
+    "Id": "39",
+    "Q": "什麼是 Java 的 Serialization (序列化)？",
+    "A": "產生序號",
+    "B": "將物件狀態轉換為 byte stream 以便儲存或傳輸",
+    "C": "將程式碼加密",
+    "D": "將陣列排序",
+    "Ans": "B",
+    "Exp": "實作 Serializable 介面可讓物件被序列化。"
+  },
+  {
+    "Id": "40",
+    "Q": "Java 中的 String Pool (字串池) 位於哪裡？",
+    "A": "Stack",
+    "B": "Heap",
+    "C": "Hard Disk",
+    "D": "CPU Register",
+    "Ans": "B",
+    "Exp": "String Pool 位於 Heap 記憶體中，用於節省記憶體空間，重複利用相同的字串常數。"
+  },
+  {
+    "Id": "41",
+    "Q": "下列哪種迴圈保證至少執行一次？",
+    "A": "for",
+    "B": "while",
+    "C": "do-while",
+    "D": "foreach",
+    "Ans": "C",
+    "Exp": "do-while 迴圈是先執行本體再判斷條件。"
+  },
+  {
+    "Id": "42",
+    "Q": "什麼是 `volatile` 關鍵字的作用？",
+    "A": "確保變數的原子性",
+    "B": "保證變數的可見性 (Visibility)，讓執行緒直接讀取主記憶體而非快取",
+    "C": "防止變數被刪除",
+    "D": "讓變數變成常數",
+    "Ans": "B",
+    "Exp": "volatile 防止編譯器優化，確保多執行緒讀取該變數時能拿到最新值，但不保證原子性。"
+  },
+  {
+    "Id": "43",
+    "Q": "Java 支援多重繼承嗎？",
+    "A": "支援，可以用 extends A, B",
+    "B": "不支援類別的多重繼承，但支援介面 (Interface) 的多重實作",
+    "C": "完全不支援",
+    "D": "只在 Java 8 之後支援",
+    "Ans": "B",
+    "Exp": "為了避免鑽石繼承問題 (Diamond Problem)，Java 類別只能單一繼承。"
+  },
+  {
+    "Id": "44",
+    "Q": "關於 `break` 和 `continue` 的差別？",
+    "A": "break 跳出整個迴圈；continue 跳過本次迭代繼續下一次",
+    "B": "continue 跳出整個迴圈；break 跳過本次迭代",
+    "C": "兩者功能相同",
+    "D": "break 只能用在 switch",
+    "Ans": "A",
+    "Exp": "break 用於終止迴圈或 switch；continue 用於跳過當前迴圈的剩餘程式碼。"
+  },
+  {
+    "Id": "45",
+    "Q": "如果一個方法拋出例外，必須使用哪個關鍵字宣告？",
+    "A": "throw",
+    "B": "throws",
+    "C": "try",
+    "D": "catch",
+    "Ans": "B",
+    "Exp": "在方法簽章後使用 `throws ExceptionType` 宣告可能拋出的例外；`throw` 則是實際拋出例外物件的動作。"
+  },
+  {
+    "Id": "46",
+    "Q": "Java 的泛型 (Generics) 主要好處是什麼？",
+    "A": "提高執行速度",
+    "B": "在編譯時期進行型別檢查，避免 ClassCastException",
+    "C": "可以使用基本資料型態",
+    "D": "減少程式碼行數",
+    "Ans": "B",
+    "Exp": "泛型提供了編譯時期的型別安全檢查，減少執行時期的轉型錯誤。"
+  },
+  {
+    "Id": "47",
+    "Q": "什麼是 `daemon thread` (守護執行緒)？",
+    "A": "優先級最高的執行緒",
+    "B": "為使用者執行緒服務的背景執行緒 (如 GC)，若所有使用者執行緒結束，JVM 會直接終止它",
+    "C": "病毒執行緒",
+    "D": "主執行緒",
+    "Ans": "B",
+    "Exp": "Daemon thread 最常見的例子就是垃圾回收器，它不會阻止 JVM 關閉。"
+  },
+  {
+    "Id": "48",
+    "Q": "Java 中的 `transient` 關鍵字用途？",
+    "A": "讓變數暫時無法使用",
+    "B": "在序列化 (Serialization) 過程中忽略該變數，不將其寫入串流",
+    "C": "讓變數可以跨執行緒共享",
+    "D": "宣告短整數",
+    "Ans": "B",
+    "Exp": "用於敏感資料（如密碼）或不需要保存的狀態。"
+  },
+  {
+    "Id": "49",
+    "Q": "System.out.println() 是什麼意思？",
+    "A": "呼叫 System 類別的靜態變數 out (PrintStream) 的 println 方法",
+    "B": "呼叫 System 類別的 println 方法",
+    "C": "呼叫 out 類別的 System 方法",
+    "D": "直接列印",
+    "Ans": "A",
+    "Exp": "System 是類別，out 是其 static member，println 是 out 的實例方法。"
+  },
+  {
+    "Id": "50",
+    "Q": "Java 的 `default` 方法 (Java 8+) 出現在哪裡？",
+    "A": "類別中",
+    "B": "介面 (Interface) 中，允許介面擁有有實作的方法",
+    "C": "抽象類別中",
+    "D": "建構子中",
+    "Ans": "B",
+    "Exp": "Java 8 允許介面定義 default 方法，為了在不破壞舊有實作的前提下擴充介面功能。"
+  }
+]

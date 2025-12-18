@@ -1,0 +1,152 @@
+[
+  {
+    "Id": "1",
+    "Q": "Spring Boot 的主要設計目標是什麼？",
+    "A": "增加程式碼的複雜度",
+    "B": "簡化 Spring 應用程式的初始搭建與開發過程",
+    "C": "取代所有 Java EE 標準",
+    "D": "讓程式執行速度變快 10 倍",
+    "Ans": "B",
+    "Exp": "Spring Boot 旨在透過「約定優於配置」(Convention over Configuration) 來簡化 Spring 開發。"
+  },
+  {
+    "Id": "2",
+    "Q": "哪一個註解標註了 Spring Boot 的進入點，並包含自動化配置等功能？",
+    "A": "@SpringBootApplication",
+    "B": "@EnableAutoConfiguration",
+    "C": "@ComponentScan",
+    "D": "@Configuration",
+    "Ans": "A",
+    "Exp": "@SpringBootApplication 是一個組合註解，包含了 @Configuration, @EnableAutoConfiguration 和 @ComponentScan。"
+  },
+  {
+    "Id": "3",
+    "Q": "Spring Boot 預設內嵌的 Web Server 是哪一個？",
+    "A": "Jetty",
+    "B": "Undertow",
+    "C": "Tomcat",
+    "D": "WebSphere",
+    "Ans": "C",
+    "Exp": "Spring Boot Starter Web 預設使用 Tomcat 作為內嵌容器。"
+  },
+  {
+    "Id": "4",
+    "Q": "Spring Boot 專案中，預設的外部配置檔案名稱為何？",
+    "A": "config.xml",
+    "B": "settings.json",
+    "C": "application.properties 或 application.yml",
+    "D": "spring.properties",
+    "Ans": "C",
+    "Exp": "Spring Boot 預設會讀取 src/main/resources 下的 application.properties 或 application.yml。"
+  },
+  {
+    "Id": "5",
+    "Q": "什麼是 Spring Boot Starter？",
+    "A": "一個啟動 Spring Boot 的軟體",
+    "B": "一套方便的依賴描述符（Dependency Descriptors），可簡化 Maven/Gradle 配置",
+    "C": "專門用來測試的工具",
+    "D": "一種特定的資料庫",
+    "Ans": "B",
+    "Exp": "Starter 封裝了特定功能所需的全部依賴，例如 spring-boot-starter-web。"
+  },
+  {
+    "Id": "26",
+    "Q": "在 RESTful API 中，哪一個註解同時具備了 @Controller 與 @ResponseBody 的功能？",
+    "A": "@Service",
+    "B": "@RestController",
+    "C": "@Component",
+    "D": "@Repository",
+    "Ans": "B",
+    "Exp": "@RestController 會將方法的 return 值自動轉換為 JSON/XML 寫入 HTTP Response。"
+  },
+  {
+    "Id": "27",
+    "Q": "若要將路徑變數（如 /user/{id}）映射到方法參數中，應使用？",
+    "A": "@RequestParam",
+    "B": "@RequestBody",
+    "C": "@PathVariable",
+    "D": "@RequestHeader",
+    "Ans": "C",
+    "Exp": "@PathVariable 用於綁定 URL 模板中的變數。"
+  },
+  {
+    "Id": "28",
+    "Q": "Spring Boot 中，如何指定某個 Bean 在需要時才被初始化？",
+    "A": "@Lazy",
+    "B": "@Scope",
+    "C": "@Async",
+    "D": "@Primary",
+    "Ans": "A",
+    "Exp": "@Lazy 延遲初始化，直到第一次被使用時才建立 Bean。"
+  },
+  {
+    "Id": "29",
+    "Q": "如何獲取 HTTP POST 請求中的 JSON 請求體並轉為物件？",
+    "A": "@RequestParam",
+    "B": "@RequestBody",
+    "C": "@ModelAttribute",
+    "D": "@Context",
+    "Ans": "B",
+    "Exp": "@RequestBody 負責將 HTTP 請求體內容透過 HttpMessageConverter 轉換成 Java 物件。"
+  },
+  {
+    "Id": "51",
+    "Q": "Spring Data JPA 中，定義實體類別（Entity）必須使用的註解是？",
+    "A": "@Table",
+    "B": "@Entity",
+    "C": "@Persistent",
+    "D": "@Bean",
+    "Ans": "B",
+    "Exp": "@Entity 標註該類別為 JPA 實體，映射到資料庫表。"
+  },
+  {
+    "Id": "52",
+    "Q": "在 Repository 介面中，如何不寫 SQL 就實現根據用戶名查詢的方法？",
+    "A": "findByUsername(String name)",
+    "B": "searchName(String name)",
+    "C": "getUserBy(String name)",
+    "D": "query(String name)",
+    "Ans": "A",
+    "Exp": "Spring Data JPA 支援「方法名命名規則查詢」（Query Methods）。"
+  },
+  {
+    "Id": "53",
+    "Q": "哪一個註解用來開啟交易（Transaction）管理？",
+    "A": "@Lock",
+    "B": "@Transactional",
+    "C": "@Committable",
+    "D": "@Rollback",
+    "Ans": "B",
+    "Exp": "@Transactional 可保證方法內的資料庫操作具備原子性。"
+  },
+  {
+    "Id": "76",
+    "Q": "Spring Boot 中，哪個組件提供了生產級別的監控（監控 Health, Metrics 等）？",
+    "A": "Spring Boot DevTools",
+    "B": "Spring Boot Actuator",
+    "C": "Spring Security",
+    "D": "Spring Cloud",
+    "Ans": "B",
+    "Exp": "Actuator 提供了一系列端點（Endpoints）來監控與管理應用狀態。"
+  },
+  {
+    "Id": "77",
+    "Q": "如何在 application.properties 中切換不同的 Profile（如 dev, prod）？",
+    "A": "spring.profiles.active=prod",
+    "B": "server.env=prod",
+    "C": "spring.config.use=prod",
+    "D": "run.mode=prod",
+    "Ans": "A",
+    "Exp": "spring.profiles.active 用於指定目前啟動的環境配置。"
+  },
+  {
+    "Id": "100",
+    "Q": "Spring Boot 封裝成 JAR 檔後，如何啟動？",
+    "A": "java -run app.jar",
+    "B": "java -jar app.jar",
+    "C": "boot run app.jar",
+    "D": "start app.jar",
+    "Ans": "B",
+    "Exp": "使用 java -jar 指令即可啟動內含所有依賴與內嵌 Server 的可執行 JAR。"
+  }
+]

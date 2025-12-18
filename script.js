@@ -29,7 +29,10 @@ const quizFiles = [
     'quiz-library/IPAS_02中級_L21人工智慧技術應用與規劃_11409.json',
     'quiz-library/IPAS_02中級_L21人工智慧技術應用與規劃_11411.json',
     'quiz-library/IPAS_02中級_L23機器學習技術與應用_11409.json',
-    'quiz-library/IPAS_02中級_L23機器學習技術與應用_11411.json'
+    'quiz-library/IPAS_02中級_L23機器學習技術與應用_11411.json',
+    'quiz-library/spring boot 基礎題練習.json',
+    'quiz-library/伊麗沙白公司_面試題114年.json',
+    'quiz-library/面試常用規則.json'
 ];
 
 // 題庫資料陣列
