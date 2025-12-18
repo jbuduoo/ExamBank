@@ -47,8 +47,12 @@ async function loadQuizFile(filePath) {
         // 從檔案路徑提取檔名作為標題
         const fileName = filePath.split('/').pop().replace('.json', '');
         
-        // 新格式：直接是陣列，舊格式：{ questions: [...] }
-        const questions = Array.isArray(data) ? data : (data.questions || []);
+        // 必須是直接陣列格式
+        if (!Array.isArray(data)) {
+            console.error(`檔案格式錯誤：${filePath} 必須是陣列格式！`);
+            throw new Error(`檔案格式錯誤：必須是陣列格式！`);
+        }
+        const questions = data;
         
         // 計算題目數量
         const questionCount = questions.length;
@@ -59,7 +63,7 @@ async function loadQuizFile(filePath) {
             imageCount = questions.filter(q => q.diagram || q.image).length;
         }
         
-        // 使用當前日期作為修改日期（新格式沒有 importDate）
+        // 使用當前日期作為修改日期
         const modifiedDate = new Date().toISOString().split('T')[0];
         
         // 計算評分（基於題目數量，範圍 0-100）
@@ -167,11 +171,16 @@ async function handleFileUpload(event) {
         try {
             const data = JSON.parse(e.target.result);
             
-            // 驗證檔案格式：新格式是陣列，舊格式是 { questions: [...] }
-            const questions = Array.isArray(data) ? data : (data.questions || []);
+            // 驗證檔案格式：必須是直接陣列格式
+            if (!Array.isArray(data)) {
+                alert('檔案格式錯誤：必須是陣列格式！\n\n正確格式：\n[{ "Id": "1", "Q": "題目內容", "A": "選項A", "B": "選項B", "C": "選項C", "D": "選項D", "Ans": "A", "Exp": "詳解" }]');
+                return;
+            }
             
-            if (!Array.isArray(questions) || questions.length === 0) {
-                alert('檔案格式錯誤：必須是題目陣列格式！');
+            const questions = data;
+            
+            if (questions.length === 0) {
+                alert('檔案格式錯誤：題目陣列為空！');
                 return;
             }
             
